@@ -1,0 +1,8 @@
+{% extends "app/base.html" %}
+{% block content %}
+    <h1>Profit and loss</h1>
+    {% for profile in profiles%}
+    <p>{{profile.user}}: {{profile.wallet}} BTC ({% if profile.profit > 0  %}+{% endif %}{{profile.profit}})</p>
+    {% endfor %}
+
+{% endblock content %}

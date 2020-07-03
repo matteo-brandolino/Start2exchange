@@ -1,0 +1,7 @@
+{% extends "app/base.html" %}
+{% block content %}
+    {% for user in users  %}
+        <h2>{{user.user|title}}</h2>
+        <p>BTC: {{user.wallet}}</p>
+    {% endfor %}
+{% endblock content %}

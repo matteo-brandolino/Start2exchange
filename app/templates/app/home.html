@@ -1,0 +1,57 @@
+{% extends "app/base.html" %}
+{% block content %}
+    <h1 class="text-center">ORDERS COMPLETED</h1>
+    {% for order in orders %}
+        {% if order.done == 'COMPLETED'%}
+        <table class="table table-dark">
+          <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Price</th>
+                <th scope="col">Position</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ order.profile.user }}</td>
+              <td>{{ order.price }}</td>
+              <td>{{ order.quantity}}</td>
+              <td>{{ order.get_position_display}}</td>
+              <td>{{ order.profile }}</td>
+            </tr>
+          </tbody>
+        </table>
+        {% endif %}
+    {% endfor %}
+
+    <h1 class="text-center">ALL ORDERS</h1>
+    {% for order in orders %}
+        {% if order.done == 'NOT COMPLETED' %}
+        <table class="table table-dark">
+          <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Position</th>
+                <th scope="col">Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ order.profile.user }}</td>
+              <td>{{ order.price }}</td>
+              <td>{{ order.quantity}}</td>
+              <td>{{ order.get_position_display}}</td>
+              <td>{{ order.profile }}</td>
+            </tr>
+          </tbody>
+        </table>
+            <br>
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock content %}
